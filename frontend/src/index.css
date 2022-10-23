@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  background-color: #404040;
+  background-color: #13518c;
   padding: 1rem;
 }
 header a {
@@ -25,12 +25,12 @@ main {
   justify-content: center;
 }
 .product {
-  border: 1px #404040 solid;
+  border: 1px #13518c solid;
   margin: 1rem;
 }
 .product img {
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
 }
 .product-info {
   padding: 1rem;
