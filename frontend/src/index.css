@@ -14,11 +14,22 @@ body {
 main {
   flex: 1;
 }
+
+.btn-primary {
+  background-color: #13518c;
+  color: #ffffff;
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.rating span {
+  color: #ffc000;
+}
+
 .product {
   border: 1px #13518c solid;
   margin: 1rem;
