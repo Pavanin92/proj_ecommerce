@@ -2,7 +2,10 @@ import axios from 'axios';
 import { useEffect, useReducer } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Helmet } from 'react-helmet-async';
 import logger from 'use-reducer-logger';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 import Product from '../components/Products';
 //import data from '../data';
 
@@ -42,12 +45,15 @@ function HomeScreen() {
   }, []);
   return (
     <div>
+      <Helmet>
+        <title>Mendes Health Store</title>
+      </Helmet>
       <h1>Produtos em Destaque</h1>
       <div className="products">
         {loading ? (
-          <div>Carregando...</div>
+          <LoadingBox />
         ) : error ? (
-          <div>{error}</div>
+          <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
             {products.map((product) => (
