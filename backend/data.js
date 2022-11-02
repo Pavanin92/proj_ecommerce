@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      _id: '1',
+      //_id: '1',
       name: 'Produto 01',
       slug: 'produto-01',
       category: 'categoria01',
@@ -14,7 +14,7 @@ const data = {
       description: 'produto de alta qualidade',
     },
     {
-      _id: '2',
+      //_id: '2',
       name: 'Produto 02',
       slug: 'produto-02',
       category: 'categoria02',
@@ -27,7 +27,7 @@ const data = {
       description: 'produto de alta qualidade',
     },
     {
-      _id: '3',
+      //_id: '3',
       name: 'Produto 03',
       slug: 'produto-03',
       category: 'categoria03',
@@ -40,7 +40,7 @@ const data = {
       description: 'produto de alta qualidade',
     },
     {
-      _id: '4',
+      //_id: '4',
       name: 'Produto 04',
       slug: 'produto-04',
       category: 'categoria04',
