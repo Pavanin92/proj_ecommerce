@@ -36,7 +36,7 @@ const data = {
       category: 'categoria02',
       image: '/images/p2.jpg',
       price: 10.55,
-      countInStock: 0,
+      countInStock: 2,
       brand: 'Marca01',
       rating: 3.0,
       numReviews: 2,
