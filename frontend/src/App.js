@@ -16,6 +16,7 @@ import SearchBox from './components/SearchBox';
 import CartScreen from './screens/CartScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import HomeScreen from './screens/HomeScreen';
+import OrderListScreen from './screens/OrderListScreen';
 import OrderScreen from './screens/OrderScreen';
 import OrderScreenHistory from './screens/OrderScreenHistory';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
@@ -125,7 +126,7 @@ function App() {
                         <NavDropdown.Item>Produtos</NavDropdown.Item>
                       </LinkContainer>
                       <LinkContainer to="/admin/orders">
-                        <NavDropdown.Item>Pedidos</NavDropdown.Item>
+                        <NavDropdown.Item>Vendas</NavDropdown.Item>
                       </LinkContainer>
                       <LinkContainer to="/admin/users">
                         <NavDropdown.Item>Usuários</NavDropdown.Item>
@@ -201,6 +202,14 @@ function App() {
                 element={
                   <AdminRoute>
                     <DashboardScreen></DashboardScreen>
+                  </AdminRoute>
+                }
+              ></Route>
+              <Route
+                path="/admin/orders"
+                element={
+                  <AdminRoute>
+                    <OrderListScreen />
                   </AdminRoute>
                 }
               ></Route>
