@@ -2,9 +2,51 @@ import bcrypt from 'bcryptjs';
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
-import { generateToken, isAuth } from '../utils.js';
+import { generateToken, isAdmin, isAuth } from '../utils.js';
 
 const userRouter = express.Router();
+
+userRouter.get(
+  '/',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const users = await User.find({});
+    res.send(users);
+  })
+);
+
+userRouter.get(
+  '/:id',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id);
+    if (user) {
+      res.send(user);
+    } else {
+      res.status(404).send({ message: 'Usuário Não Encontrado' });
+    }
+  })
+);
+
+userRouter.put(
+  '/:id',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id);
+    if (user) {
+      user.name = req.body.name || user.name;
+      user.email = req.body.email || user.email;
+      user.isAdmin = Boolean(req.body.isAdmin);
+      const updatedUser = await user.save();
+      res.send({ message: 'Usuário Atualizado', user: updatedUser });
+    } else {
+      res.status(404).send({ message: 'Usuário Não Encontrado' });
+    }
+  })
+);
 
 userRouter.post(
   '/signin',

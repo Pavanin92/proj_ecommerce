@@ -29,6 +29,8 @@ import SearchScreen from './screens/SearchScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SigninScreen from './screens/SigninScreen';
 import SignupScreen from './screens/SignupScreen';
+import UserEditScreen from './screens/UserEditScreen';
+import UserListScreen from './screens/UserListScreen';
 import { Store } from './Store';
 import { getError } from './utils';
 
@@ -214,6 +216,14 @@ function App() {
                 }
               ></Route>
               <Route
+                path="/admin/users"
+                element={
+                  <AdminRoute>
+                    <UserListScreen />
+                  </AdminRoute>
+                }
+              ></Route>
+              <Route
                 path="/admin/products"
                 element={
                   <AdminRoute>
@@ -229,7 +239,14 @@ function App() {
                   </AdminRoute>
                 }
               ></Route>
-
+              <Route
+                path="/admin/user/:id"
+                element={
+                  <AdminRoute>
+                    <UserEditScreen />
+                  </AdminRoute>
+                }
+              ></Route>
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
