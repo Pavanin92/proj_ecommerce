@@ -48,6 +48,27 @@ userRouter.put(
   })
 );
 
+userRouter.delete(
+  '/:id',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id);
+    if (user) {
+      if (user.email === 'admin@exemplo.com') {
+        res
+          .status(400)
+          .send({ message: 'Não é possível excluir administradores!' });
+        return;
+      }
+      await user.remove();
+      res.send({ message: 'Usuário excluído' });
+    } else {
+      res.status(404).send({ message: 'Usuário Não Encontrado' });
+    }
+  })
+);
+
 userRouter.post(
   '/signin',
   expressAsyncHandler(async (req, res) => {
