@@ -46,7 +46,7 @@ function HomeScreen() {
   return (
     <div>
       <Helmet>
-        <title>Mendes Health Store</title>
+        <title>Mendes Health WebStore</title>
       </Helmet>
       <h1>Produtos em Destaque</h1>
       <div className="products">
